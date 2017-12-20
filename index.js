@@ -34,9 +34,9 @@ app.use(function (req, res, next) {
 console.log("Creating Server");
 
 var server = http.createServer(app);
-var port = process.env.LOCAL_PORT || '80';
+var port = process.env.PORT || 5000;
 
-server.listen();
+server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
 
