@@ -36,7 +36,7 @@ console.log("Creating Server");
 var server = http.createServer(app);
 var port = process.env.LOCAL_PORT || '80';
 
-server.listen(port);
+server.listen();
 server.on('error', onError);
 server.on('listening', onListening);
 
