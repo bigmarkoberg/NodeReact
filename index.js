@@ -8,9 +8,26 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var multiparty = require('connect-multiparty');
 var multipartyMiddleware = multiparty();//{
-     //uploadDir: process.env.TEMP_UPLOAD_DIR 
+//uploadDir: process.env.TEMP_UPLOAD_DIR 
 //});
 
+try {
+
+    console.log("Attempting FileSystem stuff");
+    if (!fs.existsSync('./uploads/')) {
+        console.log("uploads NOT exists");
+        fs.mkdirSync('./uploads/');
+    }
+    else {
+        console.log("uploads exists");
+    }
+
+    console.log("Attempting FileSystem stuff Complete");
+
+} catch (error) {
+    console.log("Error FileSystem stuff: " + error.toString());
+
+}
 console.log("Configuring Router");
 
 app.use(bodyParser.json());
