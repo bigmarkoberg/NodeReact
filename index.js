@@ -1,3 +1,5 @@
+console.log("Starting");
+
 var fs = require('fs');
 var express = require('express');
 var http = require('http');
@@ -8,6 +10,8 @@ var multiparty = require('connect-multiparty');
 var multipartyMiddleware = multiparty();//{
      //uploadDir: process.env.TEMP_UPLOAD_DIR 
 //});
+
+console.log("Configuring Router");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -26,6 +30,8 @@ app.use(function (req, res, next) {
     err.status = 404;
     next(err);
 });
+
+console.log("Creating Server");
 
 var server = http.createServer(app);
 var port = process.env.LOCAL_PORT || '80';
